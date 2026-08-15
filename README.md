@@ -77,6 +77,27 @@ weighting discounting ubiquitous co-occurrence.
 interactive-kernel execution tool in this environment — each is a
 runnable, printed-output script rather than a `.ipynb`).
 
+## Dashboard
+
+A Next.js + D3 dashboard (`web/`) sits on top of the pipeline outputs —
+a five-page site (Overview, Explorer, Segmentation, Findings,
+Architecture) with a fully interactive, canvas-rendered concept-network
+explorer. It reads plain JSON, not a live backend:
+
+```bash
+conda activate lalitenv
+python scripts/export_dashboard_data.py   # pipeline outputs -> web/public/data/*.json
+cd web && npm install && npm run dev      # http://localhost:3000
+```
+
+`export_dashboard_data.py` is a new final pipeline stage — it re-derives
+nothing, it only reads the already-computed parquet/pickle artifacts
+above and writes dashboard-ready JSON (see the script's docstring). The
+exported JSON is committed to `web/public/data/`, so the site deploys
+as a static Next.js app (e.g. to Vercel) with no Python runtime needed
+in production; re-run the export step and commit the new JSON whenever
+the pipeline output changes.
+
 ## Not yet built
 
 - **True per-segment subgraphs**: current segmentation attributes each
@@ -92,4 +113,3 @@ runnable, printed-output script rather than a `.ipynb`).
 - Filer-resampling bootstrap/permutation on real drift (primitives exist
   in `metrics.validation`; wiring to a real re-run per iteration is a
   separate, expensive batch job).
-- Dashboard/UI (explicitly deferred to a future plan).

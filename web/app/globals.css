@@ -1,0 +1,137 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/*
+ * Design tokens for the Temporal Drift dashboard.
+ * Light: warm off-white base + near-black text (Autonomous Finance
+ * reference). Dark: near-black chrome base (topology.vc reference), same
+ * teal accent brightened for contrast. Every surface reads these
+ * variables rather than hardcoding color, so the .dark class flips the
+ * whole site with no per-component changes.
+ */
+:root {
+  --background: #f6f3ec;
+  --foreground: #16160f;
+
+  --card: #fdfcf9;
+  --card-foreground: #16160f;
+
+  --primary: #0f7a82;
+  --primary-foreground: #f6f3ec;
+
+  --secondary: #ece6d8;
+  --secondary-foreground: #16160f;
+
+  --muted: #e9e3d4;
+  --muted-foreground: #6b6656;
+
+  --accent: #0f7a82;
+  --accent-foreground: #f6f3ec;
+  --accent-soft: #dcefee;
+
+  --destructive: #b3402f;
+  --destructive-foreground: #f6f3ec;
+
+  --border: #ddd6c4;
+  --input: #ddd6c4;
+  --ring: #0f7a82;
+
+  --glass-tint: 255 255 255;
+  --glass-border: 22 22 15;
+
+  --radius: 1rem;
+}
+
+.dark {
+  --background: #0a0a08;
+  --foreground: #f2efe4;
+
+  --card: #131310;
+  --card-foreground: #f2efe4;
+
+  --primary: #22b8bf;
+  --primary-foreground: #06110f;
+
+  --secondary: #1d1c16;
+  --secondary-foreground: #f2efe4;
+
+  --muted: #1a1913;
+  --muted-foreground: #948d78;
+
+  --accent: #22b8bf;
+  --accent-foreground: #06110f;
+  --accent-soft: #10302f;
+
+  --destructive: #e56a4f;
+  --destructive-foreground: #140b08;
+
+  --border: #29271d;
+  --input: #29271d;
+  --ring: #22b8bf;
+
+  --glass-tint: 255 255 255;
+  --glass-border: 255 255 255;
+
+  color-scheme: dark;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent-soft: var(--accent-soft);
+
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --radius-sm: calc(var(--radius) - 0.5rem);
+  --radius-md: calc(var(--radius) - 0.25rem);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 0.5rem);
+
+  --font-display: var(--font-space-grotesk);
+  --font-sans: var(--font-inter);
+  --font-mono: var(--font-jetbrains-mono);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+}
+
+.font-display {
+  font-family: var(--font-display), var(--font-sans), sans-serif;
+}
+
+.font-mono {
+  font-family: var(--font-mono), ui-monospace, monospace;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
