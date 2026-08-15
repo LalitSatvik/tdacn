@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "tdacn"
+version = "0.1.0"
+description = "Temporal Drift in Accounting Concept Networks — graph embedding analysis of XBRL financial statements across consecutive reporting periods"
+requires-python = ">=3.8"
+dependencies = [
+    "duckdb",
+    "pandas",
+    "pyarrow",
+    "networkx>=3.0",
+    "node2vec",
+    "gensim",
+    "scipy",
+    "scikit-learn",
+    "statsmodels",
+    "pyyaml",
+]
+
+[project.optional-dependencies]
+dev = ["pytest"]
+
+[tool.setuptools.packages.find]
+where = ["src"]

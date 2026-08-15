@@ -1,0 +1,11 @@
+.DS_Store
+__pycache__/
+*.pyc
+.pytest_cache/
+.ipynb_checkpoints/
+data/
+data_processed/
+*.parquet
+*.pkl
+.venv/
+*.egg-info/
