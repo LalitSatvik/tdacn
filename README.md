@@ -5,9 +5,6 @@ accounting concepts — not the reported numbers — stay stable across
 consecutive reporting periods, and whether drift differs by industry, firm
 size, or reporting complexity.
 
-Full design: [`docs plan`](/Users/lalitsurisetty/.claude/plans/i-want-build-a-curried-phoenix.md)
-(55 empirical questions, methodology, verification plan).
-
 ## Architecture
 
 All analysis code operates on a **canonical schema** (`tdacn.schema`) —
